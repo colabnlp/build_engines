@@ -18,7 +18,7 @@
 # Setup default parameters (if no command-line parameters given)
 MODEL='large'
 FT_PRECISION='fp16'
-SEQ_LEN='128'
+SEQ_LEN='384'
 
 SCRIPT=$(readlink -f "$0")
 SCRIPT_DIR=$(dirname ${SCRIPT})
@@ -51,6 +51,6 @@ done
 
 # Download the BERT fine-tuned model
 echo "Downloading BERT-${MODEL} with fine-tuned precision ${FT_PRECISION} and sequence length ${SEQ_LEN} from NGC"
-mkdir -p /workspace/bert/models/fine-tuned
-cd /workspace/bert/models/fine-tuned
+mkdir -p models/fine-tuned
+cd models/fine-tuned
 ngc registry model download-version nvidia/bert_tf_v2_${MODEL}_${FT_PRECISION}_${SEQ_LEN}:2
