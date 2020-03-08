@@ -63,3 +63,7 @@ python exports/export_tacotron2_onnx.py --tacotron2 tacotron2pyt_fp16_v2/nvidia_
 python exports/export_waveglow_onnx.py --waveglow waveglow256pyt_fp16_v1/nvidia_waveglow256pyt_fp16 --wn-channels 256 -o output/
 python trt/export_onnx2trt.py --encoder output/encoder.onnx --decoder output/decoder_iter.onnx --postnet output/postnet.onnx --waveglow output/waveglow.onnx -o output/ --fp16
 ```
+put the four TensorRT engines (decoder_iter_fp16.engine waveglow_fp16.engine encoder_fp16.engine postnet_fp16.engine) and the waveglow weights(for denoiser) to 
+```
+tacotron_trt/resources
+```
