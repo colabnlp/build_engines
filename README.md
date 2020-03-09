@@ -2,7 +2,8 @@
 
 first build the docker image
 ```bash
-docker build -f trt/Dockerfile -t asr .
+cd docker
+docker build -f Dockerfile -t asr .
 ```
 download ngc clie
 ```

@@ -27,5 +27,5 @@ RUN git clone https://github.com/NVIDIA/TensorRT.git --recursive && cd TensorRT
 RUN cd TensorRT && git checkout release/7.0 && git submodule update --init --recursive && mkdir build && cd build && cmake .. -DCMAKE_CUDA_FLAGS="--expt-relaxed-constexpr --expt-extended-lambda -gencode arch=compute_70,code=sm_70 -gencode arch=compute_75,code=sm_75" && make -j nvinfer_plugin
 # Replace the default plugin library with the open-source plugins
 RUN cp TensorRT/build/libnvinfer_plugin.so* /usr/lib/x86_64-linux-gnu/
-
-
+# install the tokenizer
+RUN python -m nltk.downloader 'punkt'
